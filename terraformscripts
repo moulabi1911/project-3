@@ -1,9 +1,10 @@
-INSTALLION OF  TERRAFORM:
+#INSTALLION OF  TERRAFORM:
 
 sudo yum install -y yum-utils shadow-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 sudo yum -y install terraform
 aws configure
+
 #AWS Access Key ID [None]: AKIAQ4WJTKP7AWOEEPIR
 #AWS Secret Access Key [None]: Q6e9FX7YhbtgDrPFUmAqRAV0Q20/dmSq2Afn
 #Default region name [None]: ap-south-1
@@ -12,20 +13,9 @@ aws configure
 
 
 
+#Writing Terraform script
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#vim main.tf
 
 provider "aws" {
   region = "ap-southeast-1"
@@ -46,3 +36,47 @@ resource "aws_instance" "moulabi" {
 resource "aws_s3_bucket" "one" {
   bucket = "${local.Name}bucketma"
 }
+
+
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+#terraform destroy --auto-approve
+
+
+
+
+
+#vim main.tf
+
+
+provider "aws" {
+  region = "ap-southeast-1"
+}
+
+resource "aws_instance" "one" {
+ami = "ami-0db1894e055420bc0"
+instance_type = "t2.micro"
+tags = {
+Name = "singapore"
+}
+}
+
+provider "aws" {
+  region = "eu-west-3"
+  alias = "paris"
+}
+
+resource "aws_instance" "two" {
+provider = aws.paris
+ami = "ami-02bbe13b2401b91f9"
+instance_type = "t2.micro"
+tags = {
+Name = "paris"
+}
+
+
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+#terraform destroy --auto-approve
