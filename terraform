@@ -1,27 +1,18 @@
 #Configure using ansible
 
+#Ansible: ITs an free & open-source automation tool.
+#It is invented by Maichel Dehaan
 
-#vim ansible.tf
+#Installation of Ansible
 
-provider "aws" {
-  region = "us-east-1"
-}
+amazon-linux-extras install ansible2 -y
+yum install python3 python-dlevel python-pip -y
+vim /etc/ansible/hosts
 
-resource "aws_instance" "example" {
-count = 3
-ami           = "ami-0c55b159cbfafe1f0"
-instance_type = "t2.micro"
-}
-
-
-#terraform init
-#terraform plan
-#terraform apply --auto-approve
-
-
+#Write a playbook
 #vim playbook1.yml
-- name: install ansible
-      yum: name=ansible state=present
+- name: install maven
+      yum: name=maven state=present
 
 #ansible-playbook playbbok1.yml
-#terraform destroy --auto-approve
+
