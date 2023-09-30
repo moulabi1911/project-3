@@ -1,3 +1,5 @@
+
+#STEP-2:
 #Creating EC2 instances on AWS cloud using Terraform
 
 provider "aws" {
