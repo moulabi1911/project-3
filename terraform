@@ -8,6 +8,20 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"
-  instance_type = "t2.micro"
+count = 3
+ami           = "ami-0c55b159cbfafe1f0"
+instance_type = "t2.micro"
 }
+
+
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+
+
+#vim playbook1.yml
+- name: install ansible
+      yum: name=ansible state=present
+
+#ansible-playbook playbbok1.yml
+#terraform destroy --auto-approve
