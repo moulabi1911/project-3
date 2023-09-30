@@ -17,3 +17,6 @@ vim /etc/ansible/hosts
 
 #ansible-playbook playbbok1.yml
 
+
+
+
