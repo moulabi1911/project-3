@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - name: install git
+      yum: name=git state=absent
+    - name: installing maven
+      yum: name=maven state=absent
+
