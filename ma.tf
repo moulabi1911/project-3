@@ -1,6 +1,11 @@
 #STEP-1
 #INSTALLION OF  TERRAFORM:
 
+# Its a tool used to make infrastructure automation.
+# Its a free and opensource.
+# Its platform independent.
+# It comes on year 2014.
+
 sudo yum install -y yum-utils shadow-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 sudo yum -y install terraform
