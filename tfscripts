@@ -1,3 +1,4 @@
+#vim scripts.tf
 provider "aws" {
   region = "ap-southeast-1"
 }
@@ -17,3 +18,45 @@ resource "aws_instance" "moulabi" {
 resource "aws_s3_bucket" "abc" {
   bucket = "${local.Name}bucket1"
 }
+
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+#terraform destroy --auto-approve
+
+
+
+
+#vim scripts.tf
+
+provider "aws" {
+  region = "ap-southeast-1"
+}
+
+resource "aws_instance" "one" {
+ami = "ami-0db1894e055420bc0"
+instance_type = "t2.micro"
+tags = {
+Name = "singapore"
+}
+}
+
+provider "aws" {
+  region = "eu-west-3"
+  alias = "paris"
+}
+
+resource "aws_instance" "two" {
+provider = aws.paris
+ami = "ami-02bbe13b2401b91f9"
+instance_type = "t2.micro"
+tags = {
+Name = "paris"
+}
+
+
+
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+#terraform destroy --auto-approve
