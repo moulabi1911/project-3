@@ -1,0 +1,19 @@
+provider "aws" {
+  region = "ap-southeast-1"
+}
+
+locals {
+Name = "prod"
+}
+
+resource "aws_instance" "moulabi" {
+  ami           = "ami-0db1894e055420bc0"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "${local.Name}-instance"
+  }
+}
+
+resource "aws_s3_bucket" "abc" {
+  bucket = "${local.Name}bucket1"
+}
